@@ -14,6 +14,7 @@ typedef struct Service {
 } Service;
 
 Service *service_create();
+void service_remove(Service *theService);
 
 #endif /* SERVICE_H */
 

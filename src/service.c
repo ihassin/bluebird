@@ -11,3 +11,8 @@ Service *service_create()
     
     return(service);
 }
+
+void service_remove(Service *theService)
+{
+    free(theService);
+}

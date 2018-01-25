@@ -4,12 +4,19 @@
 
 int main(void)
 {
-    printf("Starting tests!\n");
+    printf("Starting tests!\n\r");
     
     UnityBegin("main.c");
 
     RUN_TEST(test_canary);
+
+    /* Service tests */
     RUN_TEST(test_service_creation);
+    RUN_TEST(test_service_init);
+    
+    /* Peripheral tests */
+    RUN_TEST(test_peripheral_creation);
+    RUN_TEST(test_peripheral_init);
     
     return UnityEnd();
 }

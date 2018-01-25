@@ -9,7 +9,22 @@
 #include "../service.h"
 #endif
 
+#ifndef __PERIPHERAL_H__
+#include "../peripheral.h"
+#endif
+
 void test_canary(void);
+
+/*
+ Service tests
+ */
 void test_service_creation(void);
+void test_service_init(void);
+
+/*
+ Peripheral tests
+ */
+void test_peripheral_creation(void);
+void test_peripheral_init(void);
 
 #endif
