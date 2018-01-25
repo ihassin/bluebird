@@ -5,11 +5,9 @@
 #include "service.h"
 #endif
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 #ifdef __cplusplus
 }
@@ -21,7 +19,8 @@ typedef struct Peripheral
 } Peripheral;
 
 Peripheral *peripheral_create();
-int peripheral_add_service(Service *theService);
 void peripheral_destroy(Peripheral *thePeripheral);
+
+int peripheral_add_service(Service *theService);
 
 #endif
