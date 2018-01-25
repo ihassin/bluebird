@@ -4,6 +4,7 @@
 
 int main(void)
 {
+    printf("Hello tests!\n");
     UnityBegin("main.c");
 
     // Listening on requested port
