@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-project(tests_bluebird)
+project(tests-bluebird)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -17,5 +17,5 @@ set(SOURCE_FILES
     test.c
     main.c)
 
-add_executable(tests_bluebird ${SOURCE_FILES} ${HEADER_FILES})
+add_executable(tests-bluebird ${SOURCE_FILES} ${HEADER_FILES})
 
