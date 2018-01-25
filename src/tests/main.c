@@ -13,10 +13,15 @@ int main(void)
     /* Service tests */
     RUN_TEST(test_service_creation);
     RUN_TEST(test_service_init);
-    
+
+    /* Characteristic tests */
+    RUN_TEST(test_characteristic_creation);
+    RUN_TEST(test_characteristic_init);
+
     /* Peripheral tests */
     RUN_TEST(test_peripheral_creation);
     RUN_TEST(test_peripheral_init);
+    RUN_TEST(test_peripheral_add_service);
     
     return UnityEnd();
 }

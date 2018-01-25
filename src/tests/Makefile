@@ -123,6 +123,33 @@ tests-bluebird/fast:
 	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/build
 .PHONY : tests-bluebird/fast
 
+home/pi/projects/bluebird/src/characteristic.o: home/pi/projects/bluebird/src/characteristic.c.o
+
+.PHONY : home/pi/projects/bluebird/src/characteristic.o
+
+# target to build an object file
+home/pi/projects/bluebird/src/characteristic.c.o:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/home/pi/projects/bluebird/src/characteristic.c.o
+.PHONY : home/pi/projects/bluebird/src/characteristic.c.o
+
+home/pi/projects/bluebird/src/characteristic.i: home/pi/projects/bluebird/src/characteristic.c.i
+
+.PHONY : home/pi/projects/bluebird/src/characteristic.i
+
+# target to preprocess a source file
+home/pi/projects/bluebird/src/characteristic.c.i:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/home/pi/projects/bluebird/src/characteristic.c.i
+.PHONY : home/pi/projects/bluebird/src/characteristic.c.i
+
+home/pi/projects/bluebird/src/characteristic.s: home/pi/projects/bluebird/src/characteristic.c.s
+
+.PHONY : home/pi/projects/bluebird/src/characteristic.s
+
+# target to generate assembly for a file
+home/pi/projects/bluebird/src/characteristic.c.s:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/home/pi/projects/bluebird/src/characteristic.c.s
+.PHONY : home/pi/projects/bluebird/src/characteristic.c.s
+
 home/pi/projects/bluebird/src/peripheral.o: home/pi/projects/bluebird/src/peripheral.c.o
 
 .PHONY : home/pi/projects/bluebird/src/peripheral.o
@@ -258,6 +285,33 @@ test-canary.c.s:
 	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-canary.c.s
 .PHONY : test-canary.c.s
 
+test-characteristic.o: test-characteristic.c.o
+
+.PHONY : test-characteristic.o
+
+# target to build an object file
+test-characteristic.c.o:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-characteristic.c.o
+.PHONY : test-characteristic.c.o
+
+test-characteristic.i: test-characteristic.c.i
+
+.PHONY : test-characteristic.i
+
+# target to preprocess a source file
+test-characteristic.c.i:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-characteristic.c.i
+.PHONY : test-characteristic.c.i
+
+test-characteristic.s: test-characteristic.c.s
+
+.PHONY : test-characteristic.s
+
+# target to generate assembly for a file
+test-characteristic.c.s:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-characteristic.c.s
+.PHONY : test-characteristic.c.s
+
 test-peripheral.o: test-peripheral.c.o
 
 .PHONY : test-peripheral.o
@@ -348,6 +402,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... tests-bluebird"
+	@echo "... home/pi/projects/bluebird/src/characteristic.o"
+	@echo "... home/pi/projects/bluebird/src/characteristic.i"
+	@echo "... home/pi/projects/bluebird/src/characteristic.s"
 	@echo "... home/pi/projects/bluebird/src/peripheral.o"
 	@echo "... home/pi/projects/bluebird/src/peripheral.i"
 	@echo "... home/pi/projects/bluebird/src/peripheral.s"
@@ -363,6 +420,9 @@ help:
 	@echo "... test-canary.o"
 	@echo "... test-canary.i"
 	@echo "... test-canary.s"
+	@echo "... test-characteristic.o"
+	@echo "... test-characteristic.i"
+	@echo "... test-characteristic.s"
 	@echo "... test-peripheral.o"
 	@echo "... test-peripheral.i"
 	@echo "... test-peripheral.s"

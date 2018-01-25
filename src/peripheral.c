@@ -4,6 +4,10 @@
 #include "peripheral.h"
 #endif
 
+#ifndef __SERVICE_H__
+#include "service.h"
+#endif
+
 Peripheral *peripheral_create()
 {
     Peripheral *peripheral = malloc(sizeof(Peripheral));
@@ -11,7 +15,13 @@ Peripheral *peripheral_create()
 
     return(peripheral);
 }
-void peripheral_remove(Peripheral *peripheral)
+
+void peripheral_destroy(Peripheral *thePeripheral)
 {
-    free(peripheral);
+    free(thePeripheral);
+}
+
+int peripheral_add_service(Service *theService)
+{
+    return(0);
 }

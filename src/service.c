@@ -12,7 +12,7 @@ Service *service_create()
     return(service);
 }
 
-void service_remove(Service *theService)
+void service_destroy(Service *theService)
 {
     free(theService);
 }

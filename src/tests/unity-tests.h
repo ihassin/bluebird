@@ -13,6 +13,10 @@
 #include "../peripheral.h"
 #endif
 
+#ifndef __CHARACTERISTIC_H__
+#include "../characteristic.h"
+#endif
+
 void test_canary(void);
 
 /*
@@ -26,5 +30,12 @@ void test_service_init(void);
  */
 void test_peripheral_creation(void);
 void test_peripheral_init(void);
+void test_peripheral_add_service(void);
+
+/*
+ Characteristic tests
+ */
+void test_characteristic_creation(void);
+void test_characteristic_init(void);
 
 #endif
