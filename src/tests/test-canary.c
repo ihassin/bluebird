@@ -1,12 +1,6 @@
+#ifndef __UNITY_TESTS_H__
 #include "unity-tests.h"
-
-void setUp(void)
-{
-}
-
-void tearDown(void)
-{
-}
+#endif
 
 void test_canary(void)
 {

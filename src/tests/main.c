@@ -9,6 +9,7 @@ int main(void)
     UnityBegin("main.c");
 
     RUN_TEST(test_canary);
+    RUN_TEST(test_service_creation);
     
     return UnityEnd();
 }

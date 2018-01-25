@@ -10,10 +10,13 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ggdb")
 
 include_directories(../unity/src)
 
-set(HEADER_FILES ../unity/src/unity.h unity-tests.h)
+set(HEADER_FILES ../unity/src/unity.h unity-tests.h ../service.h)
 
 set(SOURCE_FILES
     ../unity/src/unity.c
+    ../service.c
+    test-setup.c
+    test-service-creation.c
     test-canary.c
     main.c)
 
