@@ -4,10 +4,11 @@
 
 int main(void)
 {
-    printf("Hello tests!\n");
+    printf("Starting tests!\n");
+    
     UnityBegin("main.c");
 
-    // Listening on requested port
     RUN_TEST(test_canary);
+    
     return UnityEnd();
 }

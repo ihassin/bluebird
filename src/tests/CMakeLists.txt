@@ -14,7 +14,7 @@ set(HEADER_FILES ../unity/src/unity.h unity-tests.h)
 
 set(SOURCE_FILES
     ../unity/src/unity.c
-    test.c
+    test-canary.c
     main.c)
 
 add_executable(tests-bluebird ${SOURCE_FILES} ${HEADER_FILES})

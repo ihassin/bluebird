@@ -177,32 +177,32 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/main.c.s
 .PHONY : main.c.s
 
-test.o: test.c.o
+test-canary.o: test-canary.c.o
 
-.PHONY : test.o
+.PHONY : test-canary.o
 
 # target to build an object file
-test.c.o:
-	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test.c.o
-.PHONY : test.c.o
+test-canary.c.o:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-canary.c.o
+.PHONY : test-canary.c.o
 
-test.i: test.c.i
+test-canary.i: test-canary.c.i
 
-.PHONY : test.i
+.PHONY : test-canary.i
 
 # target to preprocess a source file
-test.c.i:
-	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test.c.i
-.PHONY : test.c.i
+test-canary.c.i:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-canary.c.i
+.PHONY : test-canary.c.i
 
-test.s: test.c.s
+test-canary.s: test-canary.c.s
 
-.PHONY : test.s
+.PHONY : test-canary.s
 
 # target to generate assembly for a file
-test.c.s:
-	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test.c.s
-.PHONY : test.c.s
+test-canary.c.s:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-canary.c.s
+.PHONY : test-canary.c.s
 
 # Help Target
 help:
@@ -219,9 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
+	@echo "... test-canary.o"
+	@echo "... test-canary.i"
+	@echo "... test-canary.s"
 .PHONY : help
 
 
