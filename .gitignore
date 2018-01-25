@@ -1,5 +1,7 @@
 nbproject/
 build/
 .AppleDouble/
-
-
+CMakeFiles/
+src/CMakeFiles/
+**/CMakeCache.txt
+**/cmake_install.cmake
