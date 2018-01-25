@@ -1,5 +1,7 @@
 nbproject/
 build/
+bin/
+lib/
 .AppleDouble/
 CMakeFiles/
 src/CMakeFiles/
