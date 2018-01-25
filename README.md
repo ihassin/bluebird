@@ -20,7 +20,7 @@ make
 ## Running tests
 
 ```
-./bin/tests_bluebird
+./bin/tests-bluebird
 ```
 
 # Compiling the code
