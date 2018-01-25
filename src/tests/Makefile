@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/projects/bluebird
+CMAKE_SOURCE_DIR = /home/pi/projects/bluebird/src/tests
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/projects/bluebird
+CMAKE_BINARY_DIR = /home/pi/projects/bluebird/src/tests
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/projects/bluebird/CMakeFiles /home/pi/projects/bluebird/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/projects/bluebird/src/tests/CMakeFiles /home/pi/projects/bluebird/src/tests/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/projects/bluebird/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/projects/bluebird/src/tests/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,98 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named bluebird
+# Target rules for targets named tests_bluebird
 
 # Build rule for target.
-bluebird: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bluebird
-.PHONY : bluebird
+tests_bluebird: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tests_bluebird
+.PHONY : tests_bluebird
 
 # fast build rule for target.
-bluebird/fast:
-	$(MAKE) -f src/CMakeFiles/bluebird.dir/build.make src/CMakeFiles/bluebird.dir/build
-.PHONY : bluebird/fast
+tests_bluebird/fast:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/build
+.PHONY : tests_bluebird/fast
+
+home/pi/projects/bluebird/src/unity/src/unity.o: home/pi/projects/bluebird/src/unity/src/unity.c.o
+
+.PHONY : home/pi/projects/bluebird/src/unity/src/unity.o
+
+# target to build an object file
+home/pi/projects/bluebird/src/unity/src/unity.c.o:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/home/pi/projects/bluebird/src/unity/src/unity.c.o
+.PHONY : home/pi/projects/bluebird/src/unity/src/unity.c.o
+
+home/pi/projects/bluebird/src/unity/src/unity.i: home/pi/projects/bluebird/src/unity/src/unity.c.i
+
+.PHONY : home/pi/projects/bluebird/src/unity/src/unity.i
+
+# target to preprocess a source file
+home/pi/projects/bluebird/src/unity/src/unity.c.i:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/home/pi/projects/bluebird/src/unity/src/unity.c.i
+.PHONY : home/pi/projects/bluebird/src/unity/src/unity.c.i
+
+home/pi/projects/bluebird/src/unity/src/unity.s: home/pi/projects/bluebird/src/unity/src/unity.c.s
+
+.PHONY : home/pi/projects/bluebird/src/unity/src/unity.s
+
+# target to generate assembly for a file
+home/pi/projects/bluebird/src/unity/src/unity.c.s:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/home/pi/projects/bluebird/src/unity/src/unity.c.s
+.PHONY : home/pi/projects/bluebird/src/unity/src/unity.c.s
+
+main.o: main.c.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.c.o:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/main.c.o
+.PHONY : main.c.o
+
+main.i: main.c.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/main.c.s
+.PHONY : main.c.s
+
+test.o: test.c.o
+
+.PHONY : test.o
+
+# target to build an object file
+test.c.o:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/test.c.o
+.PHONY : test.c.o
+
+test.i: test.c.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.c.i:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/test.c.i
+.PHONY : test.c.i
+
+test.s: test.c.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.c.s:
+	$(MAKE) -f CMakeFiles/tests_bluebird.dir/build.make CMakeFiles/tests_bluebird.dir/test.c.s
+.PHONY : test.c.s
 
 # Help Target
 help:
@@ -131,7 +212,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... bluebird"
+	@echo "... tests_bluebird"
+	@echo "... home/pi/projects/bluebird/src/unity/src/unity.o"
+	@echo "... home/pi/projects/bluebird/src/unity/src/unity.i"
+	@echo "... home/pi/projects/bluebird/src/unity/src/unity.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 .PHONY : help
 
 

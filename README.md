@@ -19,3 +19,11 @@ make
 
 This project is tested by [Unity](https://github.com/ThrowTheSwitch/Unity).
 
+# Running the demo
+
+## Peripheral
+
+```
+cd bin
+sudo ./peripheral
+```

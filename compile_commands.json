@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/pi/projects/bluebird/src",
-  "command": "/home/pi/projects/bluebird/nbproject/private/tools/pi_pi_22/GNU/g++     -g   -o CMakeFiles/bluebird.dir/main.cc.o -c /home/pi/projects/bluebird/src/main.cc",
-  "file": "/home/pi/projects/bluebird/src/main.cc"
-}
-]

@@ -3,6 +3,7 @@ build/
 bin/
 lib/
 .AppleDouble/
+**/.DS_Store
 CMakeFiles/
 src/CMakeFiles/
 **/CMakeCache.txt

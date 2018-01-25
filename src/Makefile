@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/projects/bluebird
+CMAKE_SOURCE_DIR = /home/pi/projects/bluebird/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/projects/bluebird
+CMAKE_BINARY_DIR = /home/pi/projects/bluebird/src
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/projects/bluebird && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/projects/bluebird/CMakeFiles /home/pi/projects/bluebird/src/CMakeFiles/progress.marks
-	cd /home/pi/projects/bluebird && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/projects/bluebird/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/projects/bluebird/src/CMakeFiles /home/pi/projects/bluebird/src/CMakeFiles/progress.marks
+	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/projects/bluebird/src/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/projects/bluebird && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	$(MAKE) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -97,60 +97,58 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/projects/bluebird && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/projects/bluebird && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/projects/bluebird && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-src/CMakeFiles/bluebird.dir/rule:
-	cd /home/pi/projects/bluebird && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/bluebird.dir/rule
-.PHONY : src/CMakeFiles/bluebird.dir/rule
+#=============================================================================
+# Target rules for targets named bluebird
 
-# Convenience name for target.
-bluebird: src/CMakeFiles/bluebird.dir/rule
-
+# Build rule for target.
+bluebird: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bluebird
 .PHONY : bluebird
 
 # fast build rule for target.
 bluebird/fast:
-	cd /home/pi/projects/bluebird && $(MAKE) -f src/CMakeFiles/bluebird.dir/build.make src/CMakeFiles/bluebird.dir/build
+	$(MAKE) -f CMakeFiles/bluebird.dir/build.make CMakeFiles/bluebird.dir/build
 .PHONY : bluebird/fast
 
-main.o: main.cc.o
+main.o: main.c.o
 
 .PHONY : main.o
 
 # target to build an object file
-main.cc.o:
-	cd /home/pi/projects/bluebird && $(MAKE) -f src/CMakeFiles/bluebird.dir/build.make src/CMakeFiles/bluebird.dir/main.cc.o
-.PHONY : main.cc.o
+main.c.o:
+	$(MAKE) -f CMakeFiles/bluebird.dir/build.make CMakeFiles/bluebird.dir/main.c.o
+.PHONY : main.c.o
 
-main.i: main.cc.i
+main.i: main.c.i
 
 .PHONY : main.i
 
 # target to preprocess a source file
-main.cc.i:
-	cd /home/pi/projects/bluebird && $(MAKE) -f src/CMakeFiles/bluebird.dir/build.make src/CMakeFiles/bluebird.dir/main.cc.i
-.PHONY : main.cc.i
+main.c.i:
+	$(MAKE) -f CMakeFiles/bluebird.dir/build.make CMakeFiles/bluebird.dir/main.c.i
+.PHONY : main.c.i
 
-main.s: main.cc.s
+main.s: main.c.s
 
 .PHONY : main.s
 
 # target to generate assembly for a file
-main.cc.s:
-	cd /home/pi/projects/bluebird && $(MAKE) -f src/CMakeFiles/bluebird.dir/build.make src/CMakeFiles/bluebird.dir/main.cc.s
-.PHONY : main.cc.s
+main.c.s:
+	$(MAKE) -f CMakeFiles/bluebird.dir/build.make CMakeFiles/bluebird.dir/main.c.s
+.PHONY : main.c.s
 
 # Help Target
 help:
@@ -175,6 +173,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/projects/bluebird && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
