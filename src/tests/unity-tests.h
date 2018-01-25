@@ -24,6 +24,7 @@ void test_canary(void);
  */
 void test_service_creation(void);
 void test_service_init(void);
+void test_service_add_characteristic(void);
 
 /*
  Peripheral tests

@@ -13,6 +13,7 @@ int main(void)
     /* Service tests */
     RUN_TEST(test_service_creation);
     RUN_TEST(test_service_init);
+    RUN_TEST(test_service_add_characteristic);
 
     /* Characteristic tests */
     RUN_TEST(test_characteristic_creation);

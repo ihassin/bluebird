@@ -16,3 +16,8 @@ void service_destroy(Service *theService)
 {
     free(theService);
 }
+
+int service_add_characteristic(Service *theService, Characteristic *theCharacteristic)
+{
+    return(0);
+}

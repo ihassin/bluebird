@@ -15,3 +15,15 @@ void test_service_init(void)
     TEST_ASSERT_EQUAL(-1, service->id);
     service_destroy(service);
 }
+
+void test_service_add_characteristic(void)
+{
+    Service *service = service_create();
+    Characteristic *characteristic = characteristic_create();
+    
+    int rc = service_add_characteristic(service, characteristic);
+    TEST_ASSERT_EQUAL(0, rc);
+    
+    characteristic_destroy(characteristic);
+    service_destroy(service);
+}
