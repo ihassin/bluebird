@@ -23,6 +23,7 @@ int main(void)
     RUN_TEST(test_peripheral_creation);
     RUN_TEST(test_peripheral_init);
     RUN_TEST(test_peripheral_add_service);
-    
+
+    RUN_TEST(test_hci);
     return UnityEnd();
 }

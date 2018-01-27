@@ -1,6 +1,14 @@
 #ifndef __UNITY_TESTS_H__
 #define __UNITY_TESTS_H__
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <bluetooth/bluetooth.h>
+#include <bluetooth/hci.h>
+#include <bluetooth/hci_lib.h>
+
 #ifndef UNITY_FRAMEWORK_H
 #include "../unity/src/unity.h"
 #endif
@@ -38,5 +46,10 @@ void test_peripheral_add_service(void);
  */
 void test_characteristic_creation(void);
 void test_characteristic_init(void);
+
+/*
+ HCI tests
+ */
+void test_hci(void);
 
 #endif

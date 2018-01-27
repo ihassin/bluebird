@@ -22,7 +22,9 @@ set(SOURCE_FILES
     test-peripheral.c
     test-characteristic.c
     test-canary.c
+    test-hci
     main.c)
 
+LINK_LIBRARIES(bluetooth)
 add_executable(tests-bluebird ${SOURCE_FILES} ${HEADER_FILES})
 

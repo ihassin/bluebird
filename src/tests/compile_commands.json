@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/home/pi/projects/bluebird/src/unity/src/unity.c.o   -c /home/pi/projects/bluebird/src/unity/src/unity.c",
+  "file": "/home/pi/projects/bluebird/src/unity/src/unity.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/home/pi/projects/bluebird/src/peripheral.c.o   -c /home/pi/projects/bluebird/src/peripheral.c",
+  "file": "/home/pi/projects/bluebird/src/peripheral.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/home/pi/projects/bluebird/src/service.c.o   -c /home/pi/projects/bluebird/src/service.c",
+  "file": "/home/pi/projects/bluebird/src/service.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/home/pi/projects/bluebird/src/characteristic.c.o   -c /home/pi/projects/bluebird/src/characteristic.c",
+  "file": "/home/pi/projects/bluebird/src/characteristic.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/test-setup.c.o   -c /home/pi/projects/bluebird/src/tests/test-setup.c",
+  "file": "/home/pi/projects/bluebird/src/tests/test-setup.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/test-service.c.o   -c /home/pi/projects/bluebird/src/tests/test-service.c",
+  "file": "/home/pi/projects/bluebird/src/tests/test-service.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/test-peripheral.c.o   -c /home/pi/projects/bluebird/src/tests/test-peripheral.c",
+  "file": "/home/pi/projects/bluebird/src/tests/test-peripheral.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/test-characteristic.c.o   -c /home/pi/projects/bluebird/src/tests/test-characteristic.c",
+  "file": "/home/pi/projects/bluebird/src/tests/test-characteristic.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/test-canary.c.o   -c /home/pi/projects/bluebird/src/tests/test-canary.c",
+  "file": "/home/pi/projects/bluebird/src/tests/test-canary.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/test-hci.c.o   -c /home/pi/projects/bluebird/src/tests/test-hci.c",
+  "file": "/home/pi/projects/bluebird/src/tests/test-hci.c"
+},
+{
+  "directory": "/home/pi/projects/bluebird/src/tests",
+  "command": "/usr/bin/gcc   -I/home/pi/projects/bluebird/src/tests/../unity/src   -ggdb -g3 -gdwarf-2   -o CMakeFiles/tests-bluebird.dir/main.c.o   -c /home/pi/projects/bluebird/src/tests/main.c",
+  "file": "/home/pi/projects/bluebird/src/tests/main.c"
+}
+]

@@ -312,6 +312,33 @@ test-characteristic.c.s:
 	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-characteristic.c.s
 .PHONY : test-characteristic.c.s
 
+test-hci.o: test-hci.c.o
+
+.PHONY : test-hci.o
+
+# target to build an object file
+test-hci.c.o:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-hci.c.o
+.PHONY : test-hci.c.o
+
+test-hci.i: test-hci.c.i
+
+.PHONY : test-hci.i
+
+# target to preprocess a source file
+test-hci.c.i:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-hci.c.i
+.PHONY : test-hci.c.i
+
+test-hci.s: test-hci.c.s
+
+.PHONY : test-hci.s
+
+# target to generate assembly for a file
+test-hci.c.s:
+	$(MAKE) -f CMakeFiles/tests-bluebird.dir/build.make CMakeFiles/tests-bluebird.dir/test-hci.c.s
+.PHONY : test-hci.c.s
+
 test-peripheral.o: test-peripheral.c.o
 
 .PHONY : test-peripheral.o
@@ -423,6 +450,9 @@ help:
 	@echo "... test-characteristic.o"
 	@echo "... test-characteristic.i"
 	@echo "... test-characteristic.s"
+	@echo "... test-hci.o"
+	@echo "... test-hci.i"
+	@echo "... test-hci.s"
 	@echo "... test-peripheral.o"
 	@echo "... test-peripheral.i"
 	@echo "... test-peripheral.s"
