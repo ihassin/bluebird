@@ -5,10 +5,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fexceptions -Wall -fpermissi
 
 link_directories(../../bunget/link)
 
-add_executable (piperi main.cpp crypto.cpp)
+add_executable (piperi main.cpp crypto.cpp callback.cpp util.cpp)
 target_link_libraries (piperi bungetLib crypto++)
 
 include_directories(../../bunget/lib ../../bunget/lib/include)
 
 set(EXECUTABLE_OUTPUT_PATH ../bin)
-
