@@ -1,35 +1,3 @@
-/**
-    Copyright:  zirexix 2016-2017
-
-    This program is distributed
-    WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-*/
-
-/*
-    This program should run as root.
-
-    Every time a characterisitc/service is chnaged,
-    turn off and on on mobile the BT to clear the cached LE's.
-
-    http://plugable.com/2014/06/23/plugable-usb-bluetooth-adapter-solving-hfphsp-profile-issues-on-linux
-    Newer Kernel Versions (3.16 and later)
-    wget https://s3.amazonaws.com/plugable/bin/fw-0a5c_21e8.hcd
-    sudo mkdir /lib/firmware/brcm
-    sudo mv fw-0a5c_21e8.hcd /lib/firmware/brcm/BCM20702A0-0a5c-21e8.hcd
-
- *              THIS IS A DEMO FOR LIBBUNGET
- *
-    This demo adds 1 service 0x123F with 3 characteristis.
-        0x3400  control a GPIO pin, we connect a LED, on GPIO 17 '/sys/class/gpio/gpio17/value'
-        0x3401
-        0x3402
-
-*/
-
-// test echo
-// #define XECHO_BLENO
-
 #include <fstream>
 #include <iostream>
 #include <unistd.h>
@@ -123,6 +91,7 @@ private:
 */
 int main(int n, char* v[])
 {
+    printf("Env: %s:%s\n", "BUNGET_TRACE", getenv("BUNGET_TRACE"));
     std::cout << LIBBUNGET_VERSION_STRING << "\n";
     if(n==1)
     {
@@ -132,7 +101,7 @@ int main(int n, char* v[])
     if(getuid()!=0)
     {
         std::cout << "run under sudo credentials or setcap bunget !\n";
-        //return -1;
+        return -1;
     }
 
     BtCtx*      ctx = BtCtx::instance();                // BT context
