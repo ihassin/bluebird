@@ -1,10 +1,10 @@
 nbproject/
-build/
 bin/
 lib/
-.AppleDouble/
+**/.AppleDouble/
 **/.DS_Store
-CMakeFiles/
-src/CMakeFiles/
+**/CMakeFiles/
 **/CMakeCache.txt
 **/cmake_install.cmake
+**/Makefile
+
