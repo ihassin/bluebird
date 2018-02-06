@@ -102,12 +102,12 @@ void Callback::onWriteRequest(IHandler* pc)
   if(is_tracing(kTraceCallback)) TRACE("Remote data:" << ret);
   if(pc->get_16uid() == UID_GPIO)
   {
-    if(::access("/sys/class/gpio/gpio17/value",0)==0)
+    if(::access("/sys/class/leds/led0/trigger",0)==0)
     {
       if(value[0]==0) {
-          system("echo 0 > /sys/class/gpio/gpio17/value");
+          system("echo 0 >/sys/class/leds/led0/brightness");
       } else {
-          system("echo 1 > /sys/class/gpio/gpio17/value");
+          system("echo 1 >/sys/class/leds/led0/brightness");
       }
     }
   }
