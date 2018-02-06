@@ -1,11 +1,15 @@
-# bluebird
+# PiPeri (Raspberry Pi BlueTooth LE Peripheral)
 
-# Set up
+## Introduction
 
-This project is compiled and linked on a Raspberry Pi.
-I use NetBeans for remote development and debug. You can see a tutorial on how to set this up [here](http://ihassin.github.io/mac%20os%20x/gnu/netbeans/remote%20compilation/remote%20debugging/remote%20execution/raspberry%20pi/rpi/2018/01/24/remote-execution-mac-raspberrypi.html).
+This project is my feeble attempt at understanding the basics of low-level BlueTooth Low Energy Peripheral programing.
+This implementation uses the [bunget](https://github.com/comarius/bunget) library to run peripheral code on a Pi. Many thanks to [comarius](https://github.com/comarius) for his efforts.
 
-# Compiling the tests
+## Modifications to the bunget app
+
+This is basically the same app that comes with bunget, with some code restructuring. In addition, I use the built-in LED instead of the bread-board version.
+
+## Compiling the tests
 
 This project uses [CMake](https://cmake.org/) and is tested using [Unity](https://github.com/ThrowTheSwitch/Unity).
 
@@ -17,28 +21,24 @@ cmake .
 make
 ```
 
-## Running tests
+## Running
 
 ```
-./bin/tests-bluebird
+sudo [BUNGET_TRACE=1|2|3] ./bin/piperi 0
 ```
 
-# Compiling the code
+## Contributing
 
-## Peripheral
+* Fork it (git@github.com:ihassin/piperi.git)
+* Create your feature branch (git checkout -b my-new-feature)
+* Commit your changes (git commit -am 'Add some feature')
+* Push to the branch (git push origin my-new-feature)
+* Create a new Pull Request
 
-This project uses [CMake](https://cmake.org/).
+## Code of conduct
 
-To compile and link, issue:
+Our code of conduct is [here](https://github.com/ihassin/piperi/blob/master/code_of_conduct.md).
 
-```
-cd src
-cmake .
-make
-```
+# License
 
-## Running it
-
-```
-./bin/bluebird
-```
+All yours to use and distribute, but be aware of the bunget license as described [here](https://github.com/comarius/bunget).
