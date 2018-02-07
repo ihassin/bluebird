@@ -9,9 +9,9 @@ This implementation uses the [bunget](https://github.com/comarius/bunget) librar
 
 This is basically the same app that comes with bunget, with some code restructuring. In addition, I use the built-in LED instead of the bread-board version.
 
-## Compiling the tests
+## Compiling the app
 
-This project uses [CMake](https://cmake.org/) and is tested using [Unity](https://github.com/ThrowTheSwitch/Unity).
+This project uses [CMake](https://cmake.org/)
 
 To compile and link, issue:
 
