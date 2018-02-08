@@ -4,8 +4,8 @@
 #include <termios.h>
 #include <stropts.h>
 
-#ifndef TRACE_H_
-#include "trace.h"
+#ifndef PIPERI_H
+#include "piperi.h"
 #endif
 
 #ifndef CALLBACK_H_
@@ -26,6 +26,7 @@ bool __alive = true;
 int main(int argc, char **argv)
 {
     std::cout << LIBBUNGET_VERSION_STRING << "\nTraceLevel: " << get_trace_level() << "\n";
+    
     if(argc==1) {
         std::cout << "sudo bunget hcidev#, pass device id as 0,1,2.. as first argument!\n";
         return -1;

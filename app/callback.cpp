@@ -1,8 +1,8 @@
 #include <fstream>
 #include <unistd.h>
 
-#ifndef TRACE_H_
-#include "trace.h"
+#ifndef PIPERI_H
+#include "piperi.h"
 #endif
 
 #ifndef CALLBACK_H_
