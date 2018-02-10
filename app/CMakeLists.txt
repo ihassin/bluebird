@@ -7,17 +7,26 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fexceptions -Wall -fpermissi
 
 set(HOME /home/pi)
 set(ProjectsRoot ${HOME}/projects)
+
 set(BungetRoot ${ProjectsRoot}/bunget)
 set(BungetSource ${BungetRoot}/lib)
 set(BungetBinary ${BungetRoot}/link)
 
-add_subdirectory(${BungetSource} ${BungetBinary} EXCLUDE_FROM_ALL)
+set(CutestRoot ${ProjectsRoot}/cutest)
+set(CutestSource ${CutestRoot}/lib)
+set(CutestBinary ${CutestRoot}/link)
 
-link_directories(${BungetRoot}/link)
+add_subdirectory(${BungetSource} ${BungetBinary} EXCLUDE_FROM_ALL)
+add_subdirectory(${CutestSource} ${CutestBinary} EXCLUDE_FROM_ALL)
+
+link_directories(${BungetRoot}/link ${CutestRoot}/link)
 
 add_executable (piperi main.cpp crypto.cpp callback.cpp util.cpp)
-target_link_libraries (piperi bungetLib crypto++)
+target_link_libraries (piperi bungetLib cutestLib crypto++)
 
 include_directories(${BungetSource} ${BungetSource}/include)
+include_directories(${CutestSource} ${CutestSource}/include)
+
 
 set(EXECUTABLE_OUTPUT_PATH ../bin)
+
