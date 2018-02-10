@@ -16,7 +16,7 @@ This project uses [CMake](https://cmake.org/)
 To compile and link, issue:
 
 ```
-cd src/tests
+cd app
 cmake .
 make
 ```
