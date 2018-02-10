@@ -7,13 +7,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fexceptions -Wall -fpermissi
 
 set(HOME /home/pi)
 set(ProjectsRoot ${HOME}/projects)
+
 set(CutestRoot ${ProjectsRoot}/cutest)
 set(CutestSource ${CutestRoot}/lib)
 set(CutestBinary ${CutestRoot}/link)
 
 add_subdirectory(${CutestSource} ${CutestBinary} EXCLUDE_FROM_ALL)
 
-link_directories(${CutestRoot}/link)
+link_directories(${CutestBinary})
 
 file(GLOB SRC_FILES *.cpp *.h)
 add_executable(cutest ${SRC_FILES})
