@@ -13,6 +13,13 @@
 #include "util.h"
 #endif
 
+#undef DEBUG
+#undef ERROR
+#include <log4cpp/Category.hh>
+#include <log4cpp/PropertyConfigurator.hh>
+
+static log4cpp::Category& mainLog = log4cpp::Category::getInstance(std::string("main"));
+
 /****************************************************************************************
 */
 Callback::Callback()
@@ -35,18 +42,18 @@ bool Callback::initHciDevice(int devid, const char* devn)
 bool Callback::onSpin(IServer* ps, uint16_t notyUuid)
 {
   if(kbhit() && (getchar() == 'q')) {
-      return false;
+    return false;
   }
 
   if(_subscribed)
   {
-      if(notyUuid==TimeChr->get_handle()) {
-          _send_value(TimeChr);
-      } else {
-          if(notyUuid==Temp1Chr->get_handle()) {
-              _send_value(Temp1Chr);
-          }
+    if(notyUuid==TimeChr->get_handle()) {
+      _send_value(TimeChr);
+    } else {
+      if(notyUuid==Temp1Chr->get_handle()) {
+        _send_value(Temp1Chr);
       }
+    }
   }
   return true;
 }
@@ -55,7 +62,7 @@ bool Callback::onSpin(IServer* ps, uint16_t notyUuid)
 */
 void Callback::onServicesDiscovered(std::vector<IHandler*>& els)
 {
-  if(is_tracing(kTraceCallback)) TRACE("my_proc event: onServicesDiscovered");
+  mainLog.info("Callback::onServicesDiscovered");
 }
 
 /****************************************************************************************
@@ -125,154 +132,154 @@ void Callback::onWriteDescriptor(IHandler* pc, IHandler* pd)
 */
 void Callback::onAdvertized(bool onoff)
 {
-    if(is_tracing(kTraceCallback)) TRACE("my_proc event:  onAdvertized:" << onoff);
+  mainLog.info("Callback::onAdvertized");
 }
 
 /****************************************************************************************
 */
 void Callback::onDeviceStatus(bool onoff)
 {
-    if(is_tracing(kTraceCallback)) TRACE("my_proc event:  onDeviceStatus:" << onoff);
-    if(onoff==false)
-    {
-        _subscribed = false;
-    }
+  mainLog.info("Callback::onDeviceStatus");
+  if(onoff==false)
+  {
+    _subscribed = false;
+  }
 }
 
 /****************************************************************************************
 */
 void Callback::onStatus(const HciDev* device)
 {
-    if(device == 0)
-    {
-        _subscribed = false;
-        if(is_tracing(kTraceCallback)) TRACE("my_proc event: disconnected");
-    }
-    else
-    {
-        if(is_tracing(kTraceCallback)) TRACE("accepted connection: " << device->_mac <<","<< device->_name);
-    }
+  if(device == 0)
+  {
+    _subscribed = false;
+    if(is_tracing(kTraceCallback)) TRACE("my_proc event: disconnected");
+  }
+  else
+  {
+    if(is_tracing(kTraceCallback)) TRACE("accepted connection: " << device->_mac <<","<< device->_name);
+  }
 }
 
 /****************************************************************************************
 */
 void Callback::_prepare_gpio17()
 {
-    if(::access("/sys/class/gpio/export/",0)==0)
-    {
-        system ("chmod 777 /sys/class/gpio/export");
-        system ("echo 17 > /sys/class/gpio/export");
-        system ("sync");
-        if(::access("/sys/class/gpio/gpio17/",0)==0)
-            system ("chmod 777 /sys/class/gpio/gpio17/*");
-        system ("sync");
-    }
+  if(::access("/sys/class/gpio/export/",0)==0)
+  {
+    system ("chmod 777 /sys/class/gpio/export");
+    system ("echo 17 > /sys/class/gpio/export");
+    system ("sync");
+    if(::access("/sys/class/gpio/gpio17/",0)==0)
+      system ("chmod 777 /sys/class/gpio/gpio17/*");
+    system ("sync");
+  }
 }
 
 /****************************************************************************************
 */
 const char *Callback::_get_time()
 {
-    if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_time");
+  if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_time");
 
-    time_t secs = time(0);
-    struct tm *local = localtime(&secs);
-    sprintf(_some, "%02d:%02d:%02d", local->tm_hour, local->tm_min, local->tm_sec);
-    return _some;
+  time_t secs = time(0);
+  struct tm *local = localtime(&secs);
+  sprintf(_some, "%02d:%02d:%02d", local->tm_hour, local->tm_min, local->tm_sec);
+  return _some;
 }
 
 /****************************************************************************************
 */
 float Callback::_get_temp()
 {
-    if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_temp");
+  if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_temp");
 
-    float ftamp=0.0;
+  float ftamp=0.0;
 
-    if(::access("/opt/vc/bin/vcgencmd",0)==0)
-    {
-        ::system("/opt/vc/bin/vcgencmd measure_temp > /tmp/bunget");
-        std::ifstream ifs("/tmp/bunget");
-        std::string temp( (std::istreambuf_iterator<char>(ifs) ),(std::istreambuf_iterator<char>()));
-        temp = temp.substr(5);
-        ftamp =::atof(temp.c_str());
-    }
-    return ftamp;
+  if(::access("/opt/vc/bin/vcgencmd",0)==0)
+  {
+    ::system("/opt/vc/bin/vcgencmd measure_temp > /tmp/bunget");
+    std::ifstream ifs("/tmp/bunget");
+    std::string temp( (std::istreambuf_iterator<char>(ifs) ),(std::istreambuf_iterator<char>()));
+    temp = temp.substr(5);
+    ftamp =::atof(temp.c_str());
+  }
+  return ftamp;
 }
 
 /****************************************************************************************
 */
 const char* Callback::_get_temp_s()
 {
-    if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_temp_s");
-    if(::access("/opt/vc/bin/vcgencmd",0)==0)
-    {
-        ::system("/opt/vc/bin/vcgencmd measure_temp > /tmp/bunget");
-        std::ifstream ifs("/tmp/bunget");
-        std::string temp( (std::istreambuf_iterator<char>(ifs) ),(std::istreambuf_iterator<char>()));
-        ::strcpy(_some,temp.c_str());
-    }
-    return _some;
+  if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_temp_s");
+  if(::access("/opt/vc/bin/vcgencmd",0)==0)
+  {
+    ::system("/opt/vc/bin/vcgencmd measure_temp > /tmp/bunget");
+    std::ifstream ifs("/tmp/bunget");
+    std::string temp( (std::istreambuf_iterator<char>(ifs) ),(std::istreambuf_iterator<char>()));
+    ::strcpy(_some,temp.c_str());
+  }
+  return _some;
 }
 
 /****************************************************************************************
 */
 uint8_t Callback::_get_gpio()
 {
-    if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_gpio");
-    if(::access("/sys/class/gpio/gpio17/value",0)==0)
-    {
-        std::ifstream ifs("/sys/class/gpio/gpio17/value");
-        std::string temp( (std::istreambuf_iterator<char>(ifs) ),(std::istreambuf_iterator<char>()));
-        return uint8_t(::atoi(temp.c_str()));
-    }
+  if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_gpio");
+  if(::access("/sys/class/gpio/gpio17/value",0)==0)
+  {
+    std::ifstream ifs("/sys/class/gpio/gpio17/value");
+    std::string temp( (std::istreambuf_iterator<char>(ifs) ),(std::istreambuf_iterator<char>()));
+    return uint8_t(::atoi(temp.c_str()));
+  }
 
-    return 0;
+  return 0;
 }
 
 /****************************************************************************************
 */
 void Callback::_send_value(IHandler* pc)
 {
-    if(is_tracing(kTraceCallback)) TRACE("my_proc::_send_value");
+  if(is_tracing(kTraceCallback)) TRACE("my_proc::_send_value");
 
-    uint16_t uid = pc->get_16uid();
-    switch(uid)
-    {
-        case  UID_GPIO:
-            {
-                uint8_t gp = _get_gpio();
-                // pc->put_value((uint8_t*)&gp,1);
-                GattRw(pc).write(gp);
-            }
-            break;
-        case  UID_TIME:
-            {
-                const char* t = _get_time();
-                pc->put_value((uint8_t*)t,::strlen(t));
-            }
-            break;
-        case  UID_TEMP:
-            {
-                //float ft = _get_temp();
-                //pc->put_value((uint8_t*)&ft,sizeof(float));
-                const char* fts = _get_temp_s();
-                pc->put_value((uint8_t*)fts,::strlen(fts));
-            }
-            break;
-        case  0xec0e:
-            {
-                //float ft = _get_temp();
-                //pc->put_value((uint8_t*)&ft,sizeof(float));
-                //const char* fts = _get_temp_s();
-                static int K=0;
+  uint16_t uid = pc->get_16uid();
+  switch(uid)
+  {
+    case  UID_GPIO:
+      {
+          uint8_t gp = _get_gpio();
+          // pc->put_value((uint8_t*)&gp,1);
+          GattRw(pc).write(gp);
+      }
+      break;
+    case  UID_TIME:
+      {
+          const char* t = _get_time();
+          pc->put_value((uint8_t*)t,::strlen(t));
+      }
+      break;
+    case  UID_TEMP:
+      {
+          //float ft = _get_temp();
+          //pc->put_value((uint8_t*)&ft,sizeof(float));
+          const char* fts = _get_temp_s();
+          pc->put_value((uint8_t*)fts,::strlen(fts));
+      }
+      break;
+    case  0xec0e:
+      {
+          //float ft = _get_temp();
+          //pc->put_value((uint8_t*)&ft,sizeof(float));
+          //const char* fts = _get_temp_s();
+          static int K=0;
 
-                char rands[32];
-                ::sprintf(rands,"%d", K++);
-                pc->put_value((uint8_t*)rands,::strlen(rands));
-            }
+          char rands[32];
+          ::sprintf(rands,"%d", K++);
+          pc->put_value((uint8_t*)rands,::strlen(rands));
+      }
+    break;
+    default:
         break;
-        default:
-            break;
-    }
+  }
 }

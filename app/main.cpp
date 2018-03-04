@@ -24,9 +24,6 @@ using namespace std;
 
 bool __alive = true;
 
-/****************************************************************************************
- * demo main program
-*/
 int main(int argc, char **argv)
 {
   log4cpp::PropertyConfigurator::configure("log4cpp.properties");
