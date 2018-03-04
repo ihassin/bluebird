@@ -16,17 +16,18 @@ set(CutestRoot ${ProjectsRoot}/cutest)
 set(CutestSource ${CutestRoot}/lib)
 set(CutestBinary ${CutestRoot}/link)
 
+set(Log4cppRoot ${ProjectsRoot}/log4cpp)
+
 add_subdirectory(${BungetSource} ${BungetBinary} EXCLUDE_FROM_ALL)
 add_subdirectory(${CutestSource} ${CutestBinary} EXCLUDE_FROM_ALL)
 
 link_directories(${BungetRoot}/link ${CutestRoot}/link)
 
 add_executable (piperi main.cpp crypto.cpp callback.cpp util.cpp)
-target_link_libraries (piperi bungetLib cutestLib crypto++)
+target_link_libraries (piperi bungetLib cutestLib crypto++ /usr/local/lib/liblog4cpp.so)
 
 include_directories(${BungetSource} ${BungetSource}/include)
 include_directories(${CutestSource} ${CutestSource}/include)
 
 
 set(EXECUTABLE_OUTPUT_PATH ../bin)
-
