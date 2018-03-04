@@ -70,7 +70,7 @@ void Callback::onServicesDiscovered(std::vector<IHandler*>& els)
 /// remote reads pc characteristics
 void Callback::onReadRequest(IHandler* pc)
 {
-  if(is_tracing(kTraceCallback)) TRACE("my_proc event:  onReadRequest:" <<  std::hex<< pc->get_16uid() << std::dec);
+  mainLog.info("Callback::onReadRequest: %d", pc->get_16uid());
   _send_value(pc);
 }
 
@@ -78,7 +78,8 @@ void Callback::onReadRequest(IHandler* pc)
 */
 int Callback::onSubscribesNotify(IHandler* pc, bool b)
 {
-  if(is_tracing(kTraceCallback)) TRACE("my_proc event: onSubscribesNotify:" << std::hex<< pc->get_16uid() << "="<<(int)b<< std::dec);
+  mainLog.info("Callback::onSubscribesNotify: %d:%d", pc->get_16uid(), (int) b);
+
   _subscribed = b;
   return 0 ;
 }
@@ -95,7 +96,6 @@ void Callback::onIndicate(IHandler* pc)
 */
 void Callback::onWriteRequest(IHandler* pc)
 {
-  if(is_tracing(kTraceCallback)) TRACE("my_proc event:  onWriteRequest:" <<  std::hex<< pc->get_16uid() << std::dec);
   std::string     ret;
   const uint8_t*  value = pc->get_value();
   char            by[4];
@@ -106,7 +106,7 @@ void Callback::onWriteRequest(IHandler* pc)
     ::sprintf(by,"%02X:",value[i]);
     ret.append(by);
   }
-  if(is_tracing(kTraceCallback)) TRACE("Remote data:" << ret);
+  mainLog.info("Callback::onWriteRequest: %d:%s", pc->get_16uid(), by);
   if(pc->get_16uid() == UID_GPIO)
   {
     if(::access("/sys/class/leds/led0/trigger",0)==0)
@@ -125,7 +125,9 @@ void Callback::onWriteRequest(IHandler* pc)
 //descriptor chnaged of the charact
 void Callback::onWriteDescriptor(IHandler* pc, IHandler* pd)
 {
-    if(is_tracing(kTraceCallback)) TRACE("my_proc event:  onWriteDescriptor:" << int(*((int*)(pd->get_value()))));
+  char buff[256];
+  sprintf(buff, "Callback::onWriteDescriptor: %d", int(*((int*)(pd->get_value()))));
+  mainLog.info(buff);
 }
 
 /****************************************************************************************
@@ -153,11 +155,11 @@ void Callback::onStatus(const HciDev* device)
   if(device == 0)
   {
     _subscribed = false;
-    if(is_tracing(kTraceCallback)) TRACE("my_proc event: disconnected");
+    mainLog.info("Callback::onStatus: Disconnected");
   }
   else
   {
-    if(is_tracing(kTraceCallback)) TRACE("accepted connection: " << device->_mac <<","<< device->_name);
+    mainLog.info("Callback::onStatus:acceptedConnection: %s:%s", device->_mac, device->_name);
   }
 }
 
@@ -180,7 +182,7 @@ void Callback::_prepare_gpio17()
 */
 const char *Callback::_get_time()
 {
-  if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_time");
+  mainLog.info("Callback::_get_time");
 
   time_t secs = time(0);
   struct tm *local = localtime(&secs);
@@ -192,7 +194,7 @@ const char *Callback::_get_time()
 */
 float Callback::_get_temp()
 {
-  if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_temp");
+  mainLog.info("Callback::_get_temp");
 
   float ftamp=0.0;
 
@@ -209,9 +211,10 @@ float Callback::_get_temp()
 
 /****************************************************************************************
 */
-const char* Callback::_get_temp_s()
+const char *Callback::_get_temp_s()
 {
-  if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_temp_s");
+  mainLog.info("Callback::_get_temp_s");
+  
   if(::access("/opt/vc/bin/vcgencmd",0)==0)
   {
     ::system("/opt/vc/bin/vcgencmd measure_temp > /tmp/bunget");
@@ -226,7 +229,8 @@ const char* Callback::_get_temp_s()
 */
 uint8_t Callback::_get_gpio()
 {
-  if(is_tracing(kTraceCallback)) TRACE("my_proc::_get_gpio");
+  mainLog.info("Callback::_get_gpio");
+
   if(::access("/sys/class/gpio/gpio17/value",0)==0)
   {
     std::ifstream ifs("/sys/class/gpio/gpio17/value");
@@ -241,7 +245,7 @@ uint8_t Callback::_get_gpio()
 */
 void Callback::_send_value(IHandler* pc)
 {
-  if(is_tracing(kTraceCallback)) TRACE("my_proc::_send_value");
+  mainLog.info("Callback::_send_value");
 
   uint16_t uid = pc->get_16uid();
   switch(uid)
