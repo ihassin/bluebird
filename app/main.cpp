@@ -7,7 +7,6 @@
 #undef DEBUG
 #include <log4cpp/Category.hh>
 #include <log4cpp/PropertyConfigurator.hh>
-#define DEBUG
 
 #ifndef PIPERI_H
 #include "piperi.h"
