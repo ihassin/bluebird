@@ -106,7 +106,8 @@ void Callback::onWriteRequest(IHandler* pc)
     ::sprintf(by,"%02X:",value[i]);
     ret.append(by);
   }
-  mainLog.info("Callback::onWriteRequest: %d:%s", pc->get_16uid(), by);
+  mainLog.info("Callback::onWriteRequest: %d:<%s>", pc->get_16uid(), ret.c_str());
+
   if(pc->get_16uid() == UID_GPIO)
   {
     if(::access("/sys/class/leds/led0/trigger",0)==0)
